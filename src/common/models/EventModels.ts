@@ -1,7 +1,5 @@
-import { EventType } from './EventType'
-
 export interface EventOptions {
-  eventType: EventType
+  eventType: string
   content: string | {}
   visitor?: string
 }

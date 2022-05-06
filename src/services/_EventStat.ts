@@ -17,7 +17,7 @@ class __EventStat {
     const runner = this.database.createTransactionRunner()
     await runner.commit(async (transaction) => {
       const event = new _StatEvent()
-      event.eventType = options.eventType
+      event.eventType = options.eventType || '-'
       event.content = typeof options.content === 'object' ? JSON.stringify(options.content) : `${options.content}`
       event.eventId = md5(`${event.eventType}:${event.content}`)
       await event.weakAddToDB(transaction)
