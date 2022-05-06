@@ -1,0 +1,23 @@
+import { SpecFactory } from '@fangcha/router'
+import { FangchaSession } from '@fangcha/backend-kit'
+import { SdkEventStatApis } from '../common/apis'
+import { _EventStat } from '../services/_EventStat'
+import { EventTypeDescriptor } from '../common/models'
+import assert from '@fangcha/assert'
+
+const factory = new SpecFactory('Event Stat')
+
+factory.prepare(SdkEventStatApis.EventStat, async (ctx) => {
+  const { eventType, content } = ctx.request.body
+  assert.ok(EventTypeDescriptor.checkValueValid(eventType), `eventType invalid`)
+  assert.ok(!!content, `content invalid`)
+  const session = ctx.session as FangchaSession
+  await _EventStat.stat({
+    eventType: eventType,
+    content: content,
+    visitor: session.curUserStr(),
+  })
+  ctx.status = 200
+})
+
+export const SdkEventStatSpecs = factory.buildSpecs()
