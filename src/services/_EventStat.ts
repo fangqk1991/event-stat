@@ -18,7 +18,7 @@ class __EventStat {
     await runner.commit(async (transaction) => {
       const event = new _StatEvent()
       event.eventType = options.eventType
-      event.content = options.content
+      event.content = typeof options.content === 'object' ? JSON.stringify(options.content) : `${options.content}`
       event.eventId = md5(`${event.eventType}:${event.content}`)
       await event.weakAddToDB(transaction)
 

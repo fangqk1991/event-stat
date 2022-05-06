@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS stat_event
 (
     _rid        BIGINT UNSIGNED    NOT NULL AUTO_INCREMENT PRIMARY KEY,
     event_id    CHAR(32)           NOT NULL COLLATE ascii_bin COMMENT '事件唯一 ID',
-    event_type  ENUM ('Hyperlink') NOT NULL DEFAULT 'Hyperlink' COMMENT '事件类型',
+    event_type  ENUM ('Hyperlink', 'Custom') NOT NULL DEFAULT 'Hyperlink' COMMENT '事件类型',
     content     TEXT COMMENT '事件内容',
     create_time TIMESTAMP          NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     UNIQUE (event_id)

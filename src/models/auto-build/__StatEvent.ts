@@ -35,7 +35,7 @@ export default class __StatEvent extends FeedBase {
    */
   public eventId!: string
   /**
-   * @description [enum('Hyperlink')] 事件类型
+   * @description [enum('Hyperlink','Custom')] 事件类型
    */
   public eventType!: string
   /**
