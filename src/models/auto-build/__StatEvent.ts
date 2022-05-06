@@ -35,7 +35,7 @@ export default class __StatEvent extends FeedBase {
    */
   public eventId!: string
   /**
-   * @description [varchar(15)] 事件类型
+   * @description [varchar(64)] 事件类型
    */
   public eventType!: string
   /**

@@ -9,11 +9,10 @@ const factory = new SpecFactory('Event Stat')
 factory.prepare(SdkEventStatApis.EventStat, async (ctx) => {
   const { eventType, content } = ctx.request.body
   assert.ok(typeof eventType === 'string', `eventType invalid`)
-  assert.ok(!!content, `content invalid`)
   const session = ctx.session as FangchaSession
   await _EventStat.stat({
     eventType: eventType,
-    content: content,
+    content: content || '-',
     visitor: session.curUserStr(),
   })
   ctx.status = 200
