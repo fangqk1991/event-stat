@@ -1,6 +1,6 @@
 {
   "name": "@fangcha/event-stat",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Event Stat.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -16,9 +16,6 @@
   "author": "fang <me@fangqk.com>",
   "license": "MIT",
   "dependencies": {
-    "fc-feed": "^0.16.0",
-    "fc-model": "^0.4.2",
-    "fc-sql": "^0.28.0",
     "tslib": "^2.4.0"
   },
   "devDependencies": {
@@ -34,6 +31,9 @@
     "@types/koa-joi-router": "^8.0.4",
     "@types/mocha": "^8.2.2",
     "@types/node": "^17.0.30",
+    "fc-feed": "^0.17.0",
+    "fc-model": "^0.4.2",
+    "fc-sql": "^0.28.0",
     "mocha": "^8.4.0",
     "nyc": "^15.1.0",
     "ts-node-dev": "^1.1.8",
